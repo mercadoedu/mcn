@@ -1,0 +1,6 @@
+^renv$
+^renv\.lock$
+^\.lintr$
+^\.tool-versions$
+^LICENSE\.md$
+^README\.Rmd$
