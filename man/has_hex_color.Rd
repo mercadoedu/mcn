@@ -4,7 +4,7 @@
 \alias{has_hex_color}
 \title{Has hex color}
 \usage{
-has_hex_color(color)
+has_hex_color(x)
 }
 \arguments{
 \item{x}{A string with a hexadecimal color.}

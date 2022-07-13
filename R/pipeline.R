@@ -3,18 +3,22 @@
 #' @description Connect to ODBC's data source, mount matched names table, update
 #'  them and .
 #'
-#' @param con A PostgreSQL's ODBC connection to Amazon RDS mercadoedu.
-#' @param tbl_name_ftk A string of table name in mercadoedu database.\strong{
+#' @param data_source_name A ODBC data source name.
+#' @param table_name_from_to_key A string of table name in mercadoedu database.
+#' \strong{
 #' ```
 #' Default: "me_v3_pricing_fromtokey"
 #' ```
 #' }
-#' @param tbl_name_pc A string of table name in mercadoedu database.\strong{
+#' @param table_name_pricing_course A string of table name in mercadoedu
+#'  database.
+#' \strong{
 #' ```
 #' Default: "pricing_course"
 #' ```
 #' }
-#' @param tbl_name_sw A string of stopwords table name in mercadoedu database.
+#' @param table_name_stopwords A string of stopwords table name in mercadoedu
+#'  database.
 #' \strong{
 #' ```
 #' Default: "stopwords"

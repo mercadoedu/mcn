@@ -9,7 +9,10 @@ put_csv_s3(tbl_mmn, bucket_name = "price-quarentine")
 \arguments{
 \item{tbl_mmn}{A data frame with the missmatched names.}
 
-\item{bkt_name}{A string(name of AWS S3 Bucket).}
+\item{bucket_name}{A string of bucket name in AWS S3.\strong{\preformatted{Default: "price-quarentine"
+}
+
+}}
 }
 \description{
 Write a csv file from table and put into the AWS S3 bucket.

@@ -9,6 +9,11 @@ delete_objects_s3(bucket_objects, bucket_name = "price-quarentine")
 \arguments{
 \item{bucket_objects}{A vector character(name of objects in the AWS S3
 bucket).}
+
+\item{bucket_name}{A string of bucket name in AWS S3.\strong{\preformatted{Default: "price-quarentine"
+}
+
+}}
 }
 \description{
 Delete objects from the AWS S3 bucket.

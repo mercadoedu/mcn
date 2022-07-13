@@ -109,7 +109,11 @@ import_csv_s3 <- function(obj_csv, obj_n, bkt_name, n_max, id = NULL) {
 #' @description Write a csv file from table and put into the AWS S3 bucket.
 #'
 #' @param tbl_mmn A data frame with the missmatched names.
-#' @param bkt_name A string(name of AWS S3 Bucket).
+#' @param bucket_name A string of bucket name in AWS S3.\strong{
+#' ```
+#' Default: "price-quarentine"
+#' ```
+#' }
 #'
 #' @export
 #'
@@ -177,6 +181,11 @@ put_csv_s3 <- function(tbl_mmn,
 #'
 #' @param bucket_objects A vector character(name of objects in the AWS S3
 #'  bucket).
+#' @param bucket_name A string of bucket name in AWS S3.\strong{
+#' ```
+#' Default: "price-quarentine"
+#' ```
+#' }
 #'
 #' @export
 #'
@@ -279,6 +288,7 @@ division <- function(...) {
 # Globals variables ####
 c(
   "arg",
+  "color"
   "course",
   "discr",
   "discr_id",
@@ -416,10 +426,10 @@ valid_bl <- function(bl, bl_options) {
 #' @param x A string with a hexadecimal color.
 #'
 #' @return A logical.
-has_hex_color <- function(color) {
-  start_with_hastag <- str_detect(string = color, pattern = "^#")
+has_hex_color <- function(x) {
+  start_with_hastag <- str_detect(string = x, pattern = "^#")
 
-  if (start_with_hastag && length(color) == 7) {
+  if (start_with_hastag && length(x) == 7) {
     TRUE
   } else {
     FALSE

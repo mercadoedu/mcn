@@ -15,6 +15,28 @@ pipeline_matched_names(
 )
 }
 \arguments{
+\item{data_source_name}{A ODBC data source name.}
+
+\item{table_name_from_to_key}{A string of table name in mercadoedu database.
+\strong{\preformatted{Default: "me_v3_pricing_fromtokey"
+}
+
+}}
+
+\item{table_name_pricing_course}{A string of table name in mercadoedu
+database.
+\strong{\preformatted{Default: "pricing_course"
+}
+
+}}
+
+\item{table_name_stopwords}{A string of stopwords table name in mercadoedu
+database.
+\strong{\preformatted{Default: "stopwords"
+}
+
+}}
+
 \item{bucket_name}{A string of bucket name in AWS S3.\strong{\preformatted{Default: "price-quarentine"
 }
 
@@ -28,24 +50,6 @@ pipeline_matched_names(
 
 \item{check}{A logical that defines if check results or not(asking to show).
 \strong{\preformatted{Default: TRUE
-}
-
-}}
-
-\item{con}{A PostgreSQL's ODBC connection to Amazon RDS mercadoedu.}
-
-\item{tbl_name_ftk}{A string of table name in mercadoedu database.\strong{\preformatted{Default: "me_v3_pricing_fromtokey"
-}
-
-}}
-
-\item{tbl_name_pc}{A string of table name in mercadoedu database.\strong{\preformatted{Default: "pricing_course"
-}
-
-}}
-
-\item{tbl_name_sw}{A string of stopwords table name in mercadoedu database.
-\strong{\preformatted{Default: "stopwords"
 }
 
 }}
