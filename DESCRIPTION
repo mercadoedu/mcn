@@ -1,0 +1,52 @@
+Package: mcn
+Title: Matching Course Names
+Version: 0.1.0.9000
+Authors@R:
+    person(
+        given = "Fernando",
+        family = "Souza",
+        role = c("aut", "cre"),
+        email = "fcsest@gmail.com")
+Description: A package to match new course names.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Imports:
+    abjutils (>= 0.3.2),
+    aws.s3 (>= 0.3.20),
+    cli (>= 3.2.0),
+    DBI (>= 1.1.2),
+    dbplyr (>= 2.1.1),
+    dplyr (>= 1.0.8),
+    glue (>= 1.6.2),
+    odbc (>= 1.3.3),
+    purrr (>= 0.3.4),
+    rlang (>= 1.0.2),
+    stopwords (>= 2.3),
+    stringr (>= 1.3.1.9000),
+    tibble (>= 3.1.7),
+    tm,
+    usethis (>= 2.1.5),
+    vroom (>= 1.5.7)
+Remotes:
+    github::abjur/abjutils@v0.3.2,
+    github::cloudyr/aws.s3@v0.3.20,
+    github::r-lib/cli@v3.2.0,
+    github::r-dbi/DBI@v1.1.2,
+    github::tidyverse/dbplyr@v2.1.1,
+    github::tidyverse/dplyr@v1.0.8,
+    github::tidyverse/glue@v1.6.2,
+    github::r-dbi/odbc@v1.3.3,
+    github::tidyverse/purrr@v0.3.4,
+    github::r-lib/rlang@v1.0.2,
+    github::quanteda/stopwords@v2.3,
+    github::tidyverse/stringr@v1.4.0,
+    github::r-lib/usethis@v2.1.5,
+    github::r-lib/vroom@v1.5.7,
+    github::tidyverse/tibble@v3.1.7.9000
+Suggests:
+    testthat (>= 3.1.4)
+Config/testthat/edition: 3
+Config/testthat/parallel: true
+Config/testthat/start-first: connect, get*, prep*, make*
