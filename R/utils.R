@@ -288,7 +288,6 @@ division <- function(...) {
 # Globals variables ####
 c(
   "arg",
-  "color"
   "course",
   "discr",
   "discr_id",
