@@ -1,28 +1,28 @@
 Matching Course Names
 ================
 
--   [Description](#description)
--   [Roadmap](#roadmap)
--   [Installation](#installation)
-    -   [System Requirements](#system-requirements)
-        -   [ODBC](#odbc)
-            -   [Data Source Name](#data-source-name)
-                -   [.odbcinst.ini](#odbcinstini)
-                -   [.odbc.ini](#odbcini)
-        -   [Environment variables](#environment-variables)
-    -   [R Package installation](#r-package-installation)
--   [Usage](#usage)
-    -   [Stopwords](#stopwords)
-        -   [Stopwords pipeline](#stopwords-pipeline)
-            -   [Mount stopwords](#mount-stopwords)
-            -   [Update stopwords](#update-stopwords)
-    -   [Matched names](#matched-names)
-        -   [Matched names pipeline](#matched-names-pipeline)
-            -   [Mount matched names](#mount-matched-names)
-            -   [Update matched names](#update-matched-names)
-            -   [Put missmatched in S3](#put-missmatched-in-s3)
-            -   [Delete S3 files](#delete-s3-files)
--   [Authors and acknowledgment](#authors-and-acknowledgment)
+  - [Description](#description)
+  - [Roadmap](#roadmap)
+  - [Installation](#installation)
+      - [System Requirements](#system-requirements)
+          - [ODBC](#odbc)
+              - [Data Source Name](#data-source-name)
+                  - [.odbcinst.ini](#odbcinstini)
+                  - [.odbc.ini](#odbcini)
+          - [Environment variables](#environment-variables)
+      - [R Package installation](#r-package-installation)
+  - [Usage](#usage)
+      - [Stopwords](#stopwords)
+          - [Stopwords pipeline](#stopwords-pipeline)
+              - [Mount stopwords](#mount-stopwords)
+              - [Update stopwords](#update-stopwords)
+      - [Matched names](#matched-names)
+          - [Matched names pipeline](#matched-names-pipeline)
+              - [Mount matched names](#mount-matched-names)
+              - [Update matched names](#update-matched-names)
+              - [Put missmatched in S3](#put-missmatched-in-s3)
+              - [Delete S3 files](#delete-s3-files)
+  - [Authors and acknowledgment](#authors-and-acknowledgment)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -37,65 +37,65 @@ were extracted but it was not possible to classify with the raw string.
 To deal with different data sources and facilitate tests, functions were
 created that:
 
--   [x] Pipeline for stopwords database
-    -   [x] Connect on `Amazon RDS mercadoedu` data source name (with
+  - [x] Pipeline for stopwords database
+      - [x] Connect on `Amazon RDS mercadoedu` data source name (with
         `ODBC` package using a `PostgreSQL` database client)
-    -   [x] Mount stopwords data
-        -   [x] Collect pt-br stopwords from `nltk`, `snowball` and
+      - [x] Mount stopwords data
+          - [x] Collect pt-br stopwords from `nltk`, `snowball` and
             `stopwords-iso` sources with the `stopwords` package
-        -   [x] Append custom stopwords list with pt-br stopwords
-        -   [x] Squish, sort and remove duplicate stopwords, before and
+          - [x] Append custom stopwords list with pt-br stopwords
+          - [x] Squish, sort and remove duplicate stopwords, before and
             after remove accents
-        -   [x] Append custom wrong pt-br stopwords list with column
+          - [x] Append custom wrong pt-br stopwords list with column
             called `stopwords_wrongs` to know if the stopword should not
             be used (If you have value 1, this stopword should not be
             used)
-        -   [x] Show stopwords
-    -   [x] Update stopwords database
-        -   [x] Overwrite stopwords data on the `stopwords` table in
+          - [x] Show stopwords
+      - [x] Update stopwords database
+          - [x] Overwrite stopwords data on the `stopwords` table in
             data source
--   [x] Pipeline for matching database
-    -   [x] Connect on `Amazon RDS mercadoedu` data source name (with
+  - [x] Pipeline for matching database
+      - [x] Connect on `Amazon RDS mercadoedu` data source name (with
         `ODBC` package using a `PostgreSQL` database client)
-    -   [x] Mount matching data of course names
-        -   [x] Get stopwords data from `stopwords` table from data
+      - [x] Mount matching data of course names
+          - [x] Get stopwords data from `stopwords` table from data
             source
-        -   [x] Get matching data from data source
-            -   [x] Collect course names data to assist in strings
+          - [x] Get matching data from data source
+              - [x] Collect course names data to assist in strings
                 matching from the `me_v3_pricing_fromtokey` table from
                 data source
-            -   [x] Collect course names categories from
+              - [x] Collect course names categories from
                 `pricing_course`
-            -   [x] Join course names data to course names categories
-            -   [x] Prepare matching data strings cleaning, squishing
+              - [x] Join course names data to course names categories
+              - [x] Prepare matching data strings cleaning, squishing
                 and lowering case
-        -   [x] Get the names of quarantine data objects from the
-            `AWS S3` bucket called `price-quarentine`
-        -   [x] Get quarantine data from the bucket objects
-            -   [x] Import the `.csv` objects from bucket with `vroom`
+          - [x] Get the names of quarantine data objects from the `AWS
+            S3` bucket called `price-quarentine`
+          - [x] Get quarantine data from the bucket objects
+              - [x] Import the `.csv` objects from bucket with `vroom`
                 package
-            -   [x] Prepare matching data strings cleaning, squishing
+              - [x] Prepare matching data strings cleaning, squishing
                 and lowering case
-        -   [x] Make joins with `matching data` and `quarantine data` by
+          - [x] Make joins with `matching data` and `quarantine data` by
             strings to match course names
-        -   [x] Show the number of `quarantine names` matched
-        -   [x] Show the proportion of `quarantine names` matched
-        -   [x] Show the proportion of `quarantine data` matched
-        -   [x] Ask if want to check course names matched
-            -   [x] Show course names matched
-            -   [x] Show course names not matched
-    -   [x] Update matching data database
-        -   [x] Insert course names matched to the
+          - [x] Show the number of `quarantine names` matched
+          - [x] Show the proportion of `quarantine names` matched
+          - [x] Show the proportion of `quarantine data` matched
+          - [x] Ask if want to check course names matched
+              - [x] Show course names matched
+              - [x] Show course names not matched
+      - [x] Update matching data database
+          - [x] Insert course names matched to the
             `me_v3_pricing_fromtokey` table from data source
-    -   [ ] Write a `.csv` object with `missmached course names` into
+      - [ ] Write a `.csv` object with `missmached course names` into
         `price-quarentine/model/` bucket folder
-    -   [ ] Delete `.csv` objects from `price-quarentine` bucket
+      - [ ] Delete `.csv` objects from `price-quarentine` bucket
 
 ## Installation
 
 ### System Requirements
 
--   ODBC
+  - ODBC
 
 You will need to install the ODBC driver and configure data source names
 to use this package.
@@ -123,7 +123,7 @@ library. Multiple drivers can be specified in the same file.
 > `Driver` and `Setup` parameter can change depending on the operating
 > system.
 
-``` ini
+``` ini ini
 [PostgreSQL Unicode]
 Description=PostgreSQL ODBC driver (Unicode version)
 Driver=psqlodbcw.so
@@ -139,7 +139,7 @@ Contains connection information, particularly the username, database and
 host information. The Driver line corresponds to the driver defined in
 `.odbcinst.ini`.
 
-``` ini
+``` ini ini
 [Amazon RDS mock]
 Driver=PostgreSQL Unicode
 Description=PostgreSQL Unicode ODBC drive of mock datasets
@@ -166,7 +166,7 @@ environment variables (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`,
 `AWS_DEFAULT_REGION` and `RDS_PWD`) required for R connect to
 `PostgreSQL` and `AWS S3`. Below is the example of the `~/.Renviron`:
 
-``` ini
+``` ini ini
 AWS_ACCESS_KEY_ID=AKIAJRFALDAXH2YOWCAA # example of an AWS Access Key ID(you need to get yours)
 AWS_SECRET_ACCESS_KEY=DpACpvciP0oK7fwOIAOx7FyufRSqb61yhuHpHK+5y # example of an AWS Secret Access Key(you need to get yours)
 AWS_DEFAULT_REGION=us-east-2 # you need to set us-east-2 as default region
@@ -348,9 +348,9 @@ matched_names_piped <- mcn::pipeline_matched_names(
 
 ##### Mount matched names
 
-To update the matching data, create the connection to
-`Amazon RDS mercadoedu` and `Amazon RDS mercadoedu` and pass as a
-parameters on pipeline:
+To update the matching data, create the connection to `Amazon RDS
+mercadoedu` and `Amazon RDS mercadoedu` and pass as a parameters on
+pipeline:
 
 ``` r
 # Connect to odbc data source ####
@@ -425,24 +425,38 @@ deleted_objects <- mcn::delete_objects(
 ## Authors and acknowledgment
 
 <table>
+
 <tr>
+
 <th>
+
 Author & Maintainer
+
 </th>
+
 <th>
+
 Company & Copyright Holder
+
 </th>
+
 </tr>
+
 <tr>
+
 <td align="center">
+
 <a href="https://tawk.to/fcs.est">
-<img src="./mcn/man/figures/name.png" style = "vertical-align:top;"/> </a>
+<img src="./man/figures/name.png" style = "vertical-align:top;"/> </a>
 <a href="https://tawk.to/fcs.est">
-<img src="./mcn/man/figures/photo.png" style = "vertical-align:top;"/> </a>
+<img src="./man/figures/photo.png" style = "vertical-align:top;"/> </a>
+
 </td>
+
 <td align="center">
+
 <a href="https://mercadoedu.com.br">
-<img src="./mcn/man/figures/mercadoedu.png" style = "width:300px; margin-top:-20px; margin-bottom:20px; margin-left:50px; margin-right:50px;"/>
+<img src="./man/figures/mercadoedu.png" style = "width:300px; margin-top:-20px; margin-bottom:20px; margin-left:50px; margin-right:50px;"/>
 </a> <a href="https://www.mercadoedu.com.br">
 <img src="http://files.mercadoedu.com.br/signs_8anos/common/website.png" style = "width:25px;"/>
 </a> <a href="https://www.linkedin.com/company/22292521">
@@ -452,6 +466,9 @@ Company & Copyright Holder
 </a> <a href="https://www.instagram.com/mercadoedu_/">
 <img src="http://files.mercadoedu.com.br/signs_8anos/common/instagram.png" style = "width:25px;"/>
 </a>
+
 </td>
+
 </tr>
+
 </table>

@@ -359,14 +359,14 @@ Company & Copyright Holder
 <tr>
 <td align="center">
 <a href="https://tawk.to/fcs.est">
-<img src="./mcn/man/figures/name.png" style = "vertical-align:top;"/>
+<img src="./man/figures/name.png" style = "vertical-align:top;"/>
 </a> <a href="https://tawk.to/fcs.est">
-<img src="./mcn/man/figures/photo.png" style = "vertical-align:top;"/>
+<img src="./man/figures/photo.png" style = "vertical-align:top;"/>
 </a>
 </td>
 <td align="center">
 <a href="https://mercadoedu.com.br">
-<img src="./mcn/man/figures/mercadoedu.png" style = "width:300px; margin-top:-20px; margin-bottom:20px; margin-left:50px; margin-right:50px;"/>
+<img src="./man/figures/mercadoedu.png" style = "width:300px; margin-top:-20px; margin-bottom:20px; margin-left:50px; margin-right:50px;"/>
 </a> <a href="https://www.mercadoedu.com.br">
 <img src="http://files.mercadoedu.com.br/signs_8anos/common/website.png" style = "width:25px;"/>
 </a> <a href="https://www.linkedin.com/company/22292521">
