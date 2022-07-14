@@ -4,3 +4,5 @@
 ^\.tool-versions$
 ^LICENSE\.md$
 ^README\.Rmd$
+^tests/testthat/_snaps
+
