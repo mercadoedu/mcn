@@ -73,7 +73,7 @@ pipeline_matched_names <- function(data_source_name,
   matched_names_updated <- update_matched_names(
     con = pipe_con,
     tbl_mn = matched_names$tables$matched,
-    tbl_name_ftk = table_name_fromtokey,
+    tbl_name_ftk = table_name_from_to_key,
     tbl_name_pc = table_name_pricing_course,
     check = check
   )
@@ -146,7 +146,7 @@ pipeline_stopwords <- function(data_source_name,
   # Mount stopwords table ####
   table_stopwords <- mount_stopwords(
     sw_list = stopwords_list,
-    sw_wrongs_list = wrong_stopwords_list,
+    sw_wrongs_list = stopwords_wrongs_list,
     check = check
   )
 
