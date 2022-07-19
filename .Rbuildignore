@@ -1,8 +1,8 @@
+.lintr
+.tool-versions
+.github/*
 ^renv$
 ^renv\.lock$
-^\.lintr$
-^\.tool-versions$
-^LICENSE\.md$
-^README\.Rmd$
-^tests/testthat/_snaps
-
+LICENSE.md
+README.Rmd
+tests/testthat/_snaps/*
