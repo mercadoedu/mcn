@@ -8,6 +8,8 @@
 #'
 #' @return A italic and quoted reference in terminal.
 #'
+#' @export
+#'
 #' @importFrom glue glue_col
 msg_ref <- function(text) {
   glue_col("{italic `{text}`}")
@@ -30,6 +32,8 @@ msg_ref <- function(text) {
 #' }
 #'
 #' @return The text named with `symbol` icon.
+#'
+#' @export
 #'
 #' @importFrom cli make_ansi_style
 #' @importFrom glue glue_col
@@ -163,6 +167,8 @@ ui_success <- function(text, bl = "none") {
 #'
 #' @return The function message formated and printed.
 #'
+#' @export
+#'
 #' @importFrom cli cat_line cli_abort cli_rule make_ansi_style
 #' @importFrom glue glue glue_col
 #' @importFrom stringr str_to_lower
@@ -265,6 +271,8 @@ ui_function <- function(text,
 #'
 #' @return The message of percentage formated and printed.
 #'
+#' @export
+#'
 #' @importFrom cli cat_line cli_abort cli_alert_info
 #' @importFrom glue glue
 ui_percent <- function(percent, type, bl = "none") {
@@ -328,6 +336,8 @@ ui_percent <- function(percent, type, bl = "none") {
 #'
 #' @return The results as a message formated and printed.
 #'
+#' @export
+#'
 #' @importFrom cli cat_line cli_text
 #' @importFrom glue glue glue_col
 #' @importFrom dplyr filter pull
@@ -362,6 +372,8 @@ ui_match <- function(id, name, db) {
 #' @param original_name A vector character with original_name (must be string).
 #'
 #' @return The results as a message formated and printed.
+#'
+#' @export
 #'
 #' @importFrom cli cat_line cli_text
 #' @importFrom glue glue_col

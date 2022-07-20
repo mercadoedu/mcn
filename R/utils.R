@@ -248,6 +248,8 @@ dbplyr_edition.myConnectionClass <- function(con) 2L
 #'
 #' @return The number resulting from the subtraction.
 #'
+#' @export
+#'
 #' @importFrom purrr reduce
 subtraction <- function(...) {
   ... |>
@@ -263,6 +265,8 @@ subtraction <- function(...) {
 #'
 #' @return The number resulting from the multiplication.
 #'
+#' @export
+#'
 #' @importFrom purrr reduce
 multiplication <- function(...) {
   ... |>
@@ -277,6 +281,8 @@ multiplication <- function(...) {
 #' @param ... The values to be divided (will be concatenated with `c()`).
 #'
 #' @return The number resulting from the division.
+#'
+#' @export
 #'
 #' @importFrom purrr reduce
 division <- function(...) {
@@ -379,7 +385,12 @@ clear_n_squish <- function(string, my_stopwords) {
 #'
 #' @param x A number.
 #'
+#' @export
+#'
 #' @return A logical.
+#'
+#' @export
+#'
 valid_percent <- function(x) {
   if (is.null(x) || !is.numeric(x) || x < 0 || x > 100) {
     FALSE
@@ -396,6 +407,9 @@ valid_percent <- function(x) {
 #' @param x A string.
 #'
 #' @return A logical.
+#'
+#' @export
+#'
 valid_string <- function(x) {
   if (is.null(x) || !is.character(x) || length(x) != 1) {
     FALSE
@@ -412,7 +426,11 @@ valid_string <- function(x) {
 #' @param bl A string.
 #' @param bl_options A vector character with the options.
 #'
+#'
 #' @return A logical.
+#'
+#' @export
+#'
 valid_bl <- function(bl, bl_options) {
   if (valid_string(bl) || !(bl %in% bl_options)) {
     FALSE
@@ -429,6 +447,9 @@ valid_bl <- function(bl, bl_options) {
 #' @param x A string with a hexadecimal color.
 #'
 #' @return A logical.
+#'
+#' @export
+#'
 has_hex_color <- function(x) {
   start_with_hastag <- str_detect(string = x, pattern = "^#")
 
@@ -447,6 +468,9 @@ has_hex_color <- function(x) {
 #' @param x A string with a hexadecimal color.
 #'
 #' @return A logical.
+#'
+#' @export
+#'
 has_color <- function(x) {
   if (x %in% colors() || has_hex_color(x)) {
     TRUE
@@ -464,6 +488,9 @@ has_color <- function(x) {
 #'  hashtag).
 #'
 #' @return A logical.
+#'
+#' @export
+#'
 valid_color <- function(x) {
   if (has_color(x) || nchar(x) == 6) {
     TRUE
