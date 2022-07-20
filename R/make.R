@@ -9,6 +9,8 @@
 #'
 #' @return A data frame joined by `by_n`.
 #'
+#' @export
+#'
 #' @importFrom cli cli_progress_step cli_progress_update
 #' @importFrom dplyr inner_join mutate
 make_join <- function(tbl_nn, tbl_db, by_n, n_iter) {
@@ -34,6 +36,8 @@ make_join <- function(tbl_nn, tbl_db, by_n, n_iter) {
 #' @param tbl_new_names A data frame with new names of the courses.
 #'
 #' @return A data frame with all joins for course names.
+#'
+#' @export
 #'
 #' @importFrom cli cli_alert
 #' @importFrom dplyr arrange distinct select

@@ -62,6 +62,8 @@ msg_error <- function(text, color = "red", symbol = NULL) {
 #'
 #' @return A info message formated in terminal.
 #'
+#' @export
+#'
 #' @importFrom cli cat_line cli_abort cli_alert_info
 #' @importFrom stringr str_to_lower
 ui_info <- function(text, bl = "after") {
@@ -103,6 +105,8 @@ ui_info <- function(text, bl = "after") {
 #' }
 #'
 #' @return A success message with icon in terminal.
+#'
+#' @export
 #'
 #' @importFrom cli cat_line cli_abort cli_alert_success
 #' @importFrom stringr str_to_lower

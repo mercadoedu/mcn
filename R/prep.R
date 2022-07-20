@@ -8,6 +8,8 @@
 #'
 #' @return The matching data prepared in a data frame format.
 #'
+#' @export
+#'
 #' @importFrom dplyr arrange mutate
 prep_matching_data <- function(tbl_matching, my_stopwords) {
   tbl_matching |>
@@ -29,6 +31,8 @@ prep_matching_data <- function(tbl_matching, my_stopwords) {
 #' @param my_stopwords A list of stopwords.
 #'
 #' @return The quarantine data prepared in a data frame format.
+#'
+#' @export
 #'
 #' @importFrom dplyr mutate
 prep_quarantine_data <- function(tbl_quarantine, my_stopwords) {

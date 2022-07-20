@@ -19,6 +19,8 @@
 #'
 #' @return The matching data in a data frame format.
 #'
+#' @export
+#'
 #' @importFrom cli cli_abort cli_progress_step cli_progress_update cli_warn
 #' @importFrom dplyr arrange collect distinct filter inner_join pull relocate
 #' select tbl
@@ -145,6 +147,8 @@ get_matching_data <- function(con,
 #'
 #' @return The stopwords in a list.
 #'
+#' @export
+#'
 #' @importFrom cli cli_abort cli_progress_step cli_progress_update cli_warn
 #' @importFrom dplyr filter pull tbl
 #' @importFrom odbc odbcListObjects
@@ -244,6 +248,8 @@ get_stopwords <- function(con,
 #' }
 #'
 #' @return The quarantine data in a data frame format.
+#'
+#' @export
 #'
 #' @importFrom cli cli_abort cli_progress_bar cli_progress_step
 #'  cli_progress_update cli_warn

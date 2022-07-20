@@ -318,6 +318,8 @@ c(
 #'
 #' @return A string corrected and lowered.
 #'
+#' @export
+#'
 #' @importFrom stringr str_replace_all str_to_lower
 correct_n_lower <- function(string) {
   string |>
@@ -356,6 +358,8 @@ correct_n_lower <- function(string) {
 #' @param my_stopwords A vector character with stopwords.
 #'
 #' @return A string corrected.
+#'
+#' @export
 #'
 #' @importFrom abjutils rm_accent
 #' @importFrom grDevices colors
